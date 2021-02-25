@@ -11,6 +11,7 @@ use DB;
 
 class NivelesController extends Controller
 {
+    
     public function __construct()
     {
         $this->middleware('auth');

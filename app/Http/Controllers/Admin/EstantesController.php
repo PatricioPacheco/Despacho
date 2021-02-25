@@ -11,6 +11,7 @@ use DB;
 
 class EstantesController extends Controller
 {
+    
     public function __construct()
     {
         $this->middleware('auth');

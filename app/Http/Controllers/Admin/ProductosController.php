@@ -14,16 +14,11 @@ use DB;
 class ProductosController extends Controller
 {
 
-
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $user=Auth::user();
@@ -35,7 +30,6 @@ class ProductosController extends Controller
         $prod=Productos::orderBy('nombre_producto','ASC')->paginate(5);
         return view('Admin/producto', compact('user','cat','est','niv','provee','secc'), compact('prod'));
     }
-
 
     public function informacion($id)
     {
@@ -52,12 +46,6 @@ class ProductosController extends Controller
         return view('Admin/productoinfo', compact('user'), compact('prod'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $prod=new Productos();
@@ -78,28 +66,14 @@ class ProductosController extends Controller
         $prod->save();
             
         return back()->with('success', 'Producto Agregada Correctamente');
-
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $cat=Categorias::find($id);
         return view ('admin/editcat', compact('cat'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $prod = Productos::find($id);
@@ -122,12 +96,6 @@ class ProductosController extends Controller
         return back()->with('success', 'Clase Agregada Correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         DB::table('productos')->delete($id);

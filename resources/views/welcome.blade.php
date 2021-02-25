@@ -5,67 +5,72 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sistema Web Patricio Pacheco</title>
+        <title>EP Despachos </title>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/estilos.css') }}" >
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     </head>
+     
     <body>
     
-            <header>
-        <nav id="nav" class="nav">
-            <div class="contenedor-nav">
-                <div class="enlaces" id="enlaces">
+        <header>
+            <nav id="nav" class="nav">
+                <div class="contenedor-nav" align="right">
+                    <div class="enlaces" id="enlaces">
 
-                <a href="{{ url('/') }}" id="enlace-inicio" class="btn-header"><strong>Inicio</strong></a>
-                <a href="#" id="enlace-inicio" class="btn-header"><strong>Nosotros</strong></a>
-                <a href="#" id="enlace-inicio" class="btn-header"><strong>Productos</strong></a>
-                <a href="#" id="enlace-inicio" class="btn-header"><strong>Equipo</strong></a>
-                <a href="#" id="enlace-inicio" class="btn-header"><strong>Servicio</strong></a>
-                <a href="#" id="enlace-inicio" class="btn-header"><strong>Trabajo</strong></a>
-        
-                
-                @if (Route::has('login'))
-                
-                    @auth
-                        <a href="{{ url('/home') }}"><strong>Home</strong></a>
-                    @else
-                        <a href="{{ route('login') }}"><strong>Iniciar Sesión</strong></a>
-
+                    <a href="{{ url('/') }}" id="enlace-inicio" class="btn-header"><strong>Inicio</strong></a>
+                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Nosotros</strong></a>
+                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Productos</strong></a>
+                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Equipo</strong></a>
+                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Servicio</strong></a>
+                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Trabajo</strong></a>
+            
                     
-                    @endauth
-                
-            @endif
+                    @if (Route::has('login'))
+                    
+                        @auth
+                            <a href="{{ url('/home') }}"><strong>Home</strong></a>
+                        @else
+                            <a href="{{ route('login') }}"><strong>Iniciar Sesión</strong></a>
+                        @endauth
+                    
+                    @endif
 
-            
-            
-        </nav>
-        <section class="textos-header">
-            <h1>Potencia la organizacion y calidad de tus productos</h1>
-            <h2>Con una pagina Web potente</h2>
-        </section>  
-    <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>
-    </header>
+                
+                
+            </nav>
+            <section class="textos-header">
+                <h1>Sistema de Gestión</h1>
+                <h2>de Productos </h2>
+            </section>  
+            <div class="wave" style="height: 150px; overflow: hidden;" >
+                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;">
+                        
+                    </path>
+                </svg>
+            </div>
+        </header>
 
             
             <main>
-        <section class="contenedor sobre-nosotros">
-            <h2 class="titulo">AP Company</h2>
+        <section class="contenedor-sobre-nosotros">
+            <h2 class="titulo"></h2>
             <p class="after">Nosotros</p>
             <div class="contenedor-sobre-nosotros">
-                <img src="img/nosotros.svg" alt="">
+                <img src="img/nosotros.svg" width="200px" height="200px">
                 <div class="contenido-textos">
-                    <h3><span>1</span>MISION</h3>
-                        <p>Somos una empresa de servicios tecnológicos con enfoque social y crecimiento sostenido con alto concepto de servicio para contribuir al mejoramiento de la calidad de vida de nuestro equipo de trabajo y clientes; con la seguridad y respaldo técnico para cuidar de sus bienes mediante tecnología de punta. </p>
-                    <h3><span>2</span>VISION</h3>
-                        <p>Tener un crecimiento constante con servicio de excelencia y de reconocida trayectoria por su especialización en la prestación de servicios y Productos tecnológicos de punta; ofrecer a nuestros clientes productos adaptados a sus necesidades, brindar atención personalizada, con equipamiento moderno, con personal capacitado y comprometido.</p>
+                    <h3>Información</h3>
+                        <p>Somos una plataforma de servicios tecnológicos enfocada en la gestión de productos que permite automatizar procesos de recepción, empaquetado y distribución de forma intuitiva y ágil. </p>
                 </div>
             </div> 
         </section>
         <section class="portafolio">
             <div class="contenedor">
-                <h2 class="titulo">DISTINTOS PRODUCTOS</h2>
+                <h2 class="titulo">Productos</h2>
                 <div class="galeria-port">
                     <div class="imagen-port">
                         <img src="img/comida1.jpg" alt="">

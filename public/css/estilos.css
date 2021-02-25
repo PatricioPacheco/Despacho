@@ -11,6 +11,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    background-color: #DEC48A;
 }
 
 .contenedor {
@@ -33,14 +34,15 @@ body {
 header {
     width: 100%;
     height: 600px;
-    background: #C6FFDD;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsla(358, 89%, 72%, 0.192), hsla(42, 94%, 75%, 0.192), hsla(144, 100%, 89%, 0.199)), url(../img/fondo.jpg);
+    background: #7E8A83;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(358, 89%, 72%, 0.192), hsla(42, 94%, 75%, 0.192), hsla(144, 100%, 89%, 0.199)), url(../img/productos.jpg);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, hsla(358, 89%, 72%, 0.192), hsla(42, 94%, 75%, 0.192), hsla(144, 100%, 89%, 0.199)), url(../img/fondo.jpg);
+    background: linear-gradient(to right, hsla(358, 89%, 72%, 0.192), hsla(42, 94%, 75%, 0.192), hsla(144, 100%, 89%, 0.199)), url(../img/productos.jpg);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-attachment: fixed;
     position: relative;
+
 }
 
 nav {
@@ -83,21 +85,22 @@ header .textos-header {
     display: flex;
     height: 430px;
     width: 100%;
-    align-items: center;
+    padding-left: 150px;
+    padding-top: 100px;
+    align-items: left;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
 }
 
 .textos-header h1 {
     font-size: 55px;
-    color: var(--color2);
+    color: black;
 }
 
 .textos-header h2 {
     font-size: 55px;
     font-weight: 300;
-    color:var(--color2);
+    color: black;
 }
 
 .wave {
@@ -130,7 +133,7 @@ header .textos-header {
 }
 
 .contenido-textos h3 span{
-    background: var(--color1);
+    background: black;
     color: #fff;
     border-radius: 50%;
     display: inline-block;
@@ -143,7 +146,7 @@ header .textos-header {
 }
 
 .contenido-textos p {
-    padding: 0px 0px 30px 30px;
+    padding-right: 50px;
     font-weight: 300;
     text-align: justify;
 }
@@ -208,6 +211,7 @@ header .textos-header {
     font-size: 30px;
     text-align: center;
     margin-bottom: 10px;
+    padding-left: 50px;
 }
 
 .after {
@@ -229,7 +233,7 @@ header .textos-header {
 }
 
 .after {
-    color: var(--color1);
+    color: black;
     font-size: 19px;
     text-align: center;
     margin-bottom: 20px;

@@ -12,13 +12,10 @@ use Carbon\Carbon;
 class UserController extends Controller
 {
 
- 
-
     public function __construct()
     {
         $this->middleware('auth');
     }
-
 
     public function index(Request $request){
 
@@ -42,16 +39,11 @@ class UserController extends Controller
        return redirect('/usuarios')->with('notificacion','Usuario registrado exitosamente');
     }
 
-
-
-
     public function index2(){
       $usrs=Auth::user();
       $userss=User::onlyTrashed()->orderBy('id','ASC')->paginate(5);
       return view('Admin/habilitar', compact('usrs'), compact('userss'));
     }
-
-
 
     public function delete($id)
     {
@@ -60,35 +52,23 @@ class UserController extends Controller
 
        return redirect('/usuarios')->with('warning', 'Usuario eliminado exitosamente.');
 
-     }
+    }
    
-  
-
-
-
     public function restore($id)
     {
        $usr=User::withTrashed()->where('id', '=', $id)->first();
        $usr->restore();
 
        return redirect('/usuarios')->with('toast_warning', 'Usuario restaurado exitosamente.');
-   
+
     }
-
-
-
-
-
 
     public function edit($id)
        { 
           $use=User::find($id);
           return view ('admin.editUser')->with('user',$use);
       }
-
-
-
-          
+     
    public function update($id, Request $request)
           { 
                 $rules = [
@@ -105,9 +85,5 @@ class UserController extends Controller
                    $user->save();
                    return redirect('/usuarios')->with('success', 'Usuario modificado exitosamente.');
              }
-
-
-
-   
 
 }

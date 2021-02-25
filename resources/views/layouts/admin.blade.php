@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
 
@@ -76,78 +77,85 @@
         <!-- Nav Item - About -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('usuarios') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="far fa-user"></i>
                 <span>{{ __('Usuarios') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('usuarioshabilitar')}}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Habilitar usuarios') }}</span>
+                <i class="fas fa-users-cog"></i>
+                <span>{{ __('Habilitar Usuarios') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('proveedores') }}">
+                <i class="fas fa-people-arrows"></i>
+                <span>{{ __('Proveedores') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('secciones') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-ruler-horizontal"></i>
                 <span>{{ __('Secciones') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('categoria') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-warehouse"></i>
                 <span>{{ __('Categorias') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('productos') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Producto') }}</span>
-                </a>
-        </li>
-
-        <li class="nav-item ">
             <a class="nav-link" href="{{ route('estantes') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-pause"></i>
                 <span>{{ __('Estantes') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('niveles') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-server"></i>
                 <span>{{ __('Niveles') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('proveedores') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Proveedores') }}</span>
-            </a>
+            <a class="nav-link" href="{{ route('productos') }}">
+                <i class="fas fa-industry"></i>
+                <span>{{ __('Productos') }}</span>
+                </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('transportes') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-people-carry"></i>
                 <span>{{ __('Transportes') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('clientes') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-chalkboard-teacher"></i>
                 <span>{{ __('Clientes') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('empaques') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-laptop-house"></i>
                 <span>{{ __('Empaques') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('empaques') }}">
+                <i class="fas fa-sort-numeric-down"></i>
+                <span>{{ __('Despachos') }}</span>
             </a>
         </li>
 
@@ -164,7 +172,6 @@
         </li>
 
        
-
         @endif
 
         <!-- Divider -->

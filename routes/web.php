@@ -87,6 +87,8 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
 	/** Empaques **/
 	Route::get('/empaques', 'EmpaquesController@index')->name('empaques')->middleware('verified');
 	Route::post('/empaques','EmpaquesController@store')->name('empaques.add')->middleware('verified');
+	Route::get('/despacho/{id}', 'EmpaquesController@viewdespacho')->name('despacho')->middleware('verified');
+	Route::post('/despacho/{id}', 'EmpaquesController@despacho')->name('despacho.add')->middleware('verified');
 	Route::get('/empaques/{id}/destroy', 'EmpaquesController@destroy')->name('empaques.delete')->middleware('verified');
 
 

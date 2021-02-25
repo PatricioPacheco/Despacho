@@ -122,27 +122,35 @@
                                                 <div class="form-group col-md-6">
                                                 <label for="name" class="col-sm-10 control-label">Stock Producto (unidades)</label>
                                                 <div class="col-sm-10">
-                                                  <input id="stock" class="form-control" type="text" placeholder="stock" disabled/>
+                                                  <input type="text" id="stock" name="stock_producto" class="form-control"  placeholder="stock"  disabled/>
 
                                                   </div>
                                                 </div>
 
+                                                
+
                                                 </div>
 
+
+                  
 
                                                 <div class="form-group">
-                                                <label for="cantidad_producto" class="col-sm-4 control-label">Cantidad</label>
+                                                <label for="cantidad_producto" class="col-sm-10 control-label">Cantidad</label>
                                                 <div class="col-sm-10">
-                                                        <input type="number" class="form-control"  name="cantidad_producto" value="{{old('cantidad_producto')}}" required>
+                                                        <input type="text" class="form-control" id="cantidad" name="cantidad_producto" value="{{old('cantidad_producto')}}"  required>
                                                 </div>
                                                 </div>
+
+                                                <input type="text" id="caja3" name="stock_actual" placeholder="total" hidden>
+
+                                               
                                                
                                                 
                                               
                                             </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                              <button type="submit" class="btn btn-primary">Crear</button>
+                                              <button type="submit" class="btn btn-primary">Crear</button>   
                                             </div>
                                           </form> 
 
@@ -155,14 +163,17 @@
                     </div>
 
 
-                   
-
                         <div class="table-responsive">  
                         <table class="table table-bordered" id="dataTable"  width="100%" cellspacing="0">
                            <thead > 
                             <tr >
-                                <th>Nombres</th>
-                                <th>Cantidad</th>
+                                <th>Orden</th>
+                                <th>Producto</th>
+                                <th>Peso</th>
+                                <th>Stock</th>
+                                <th>Cantidad Orden</th>
+                                <th>Stock restante</th>
+                                <th>Despacho</th>
                                 <th>Eliminar</th>
                                                         
                                 
@@ -171,26 +182,62 @@
 
                            <tfoot > 
                             <tr >
-                                <th>Nombres</th>
-                                <th>Cantidad</th>   
-                                <th>Eliminar</th>                   
+                                <th>Orden</th>
+                                <th>Producto</th>
+                                <th>Peso</th>
+                                <th>Stock</th>
+                                <th>Cantidad Orden</th>
+                                <th>Stock restante</th>
+                                <th>Despacho</th>
+                                <th>Eliminar</th>                  
                                 
                             </tr>
                            </tfoot>
                            <tbody>
-                            @foreach($emp as $Empaques)
+                            @foreach($emp2 as $Empaques)
                                <tr>
                                    <td>
-                                       {{$Empaques->orden_empaque}}
+                                        {{$Empaques->orden_empaque}}
                                    </td> 
                                    <td>
-                                        {{$Empaques->cantidad_producto}}
+                                        {{$Empaques->nombre_producto}}
+                                   </td> 
+                                   <td>
+                                        {{$Empaques->peso_producto}} kg
+                                   </td> 
+
+                                   <td>
+                                        {{$Empaques->stock_producto}} unidades
+                                   </td> 
+
+                                   <td>
+                                        {{$Empaques->cantidad_producto}} unidades
                                    </td>
 
                                    <td>
-                            <a href="/empaques/{{$Empaques->id}}/destroy" class='far fa-trash-alt' style='font-size:24px;color:red' title="Eliminar" onclick="return confirm('Estas seguro que desea eliminar el estante?')">
-                            </a>
+                                   @if ($Empaques->stock_producto < $Empaques->cantidad_producto)
+                                      No hay stock
+                                   @else
+                                      {{$Empaques->stock_producto - $Empaques->cantidad_producto}} unidades
+                                  @endif
+                                        
+                                   </td>
+
+                                   <td>
+
+                                   @if ($Empaques->stock_producto < $Empaques->cantidad_producto)
+                                     No hay stock
+                                   @else
+                                   <a href="/despacho/{{$Empaques->idempaque}}" class='far fa-edit' style='font-size:15px;color:green' title="Editar"> </a>
+                                  @endif
+                                  
+                                   
                           </td>
+
+                              <td>
+                                  <a href="/empaques/{{$Empaques->idempaque}}/destroy" class='far fa-trash-alt' style='font-size:15px;color:red' title="Eliminar" onclick="return confirm('Estas seguro que desea eliminar el estante?')">
+                                  </a>
+                                </td>
 
                                </tr>
                               @endforeach
@@ -233,6 +280,19 @@
       peso.value = mData.peso;
       stock.value = mData.stock;
     };
+</script>
+
+
+<script>
+        let stock = document.getElementById("stock")
+        let cantidad = document.getElementById("cantidad")
+        let resta = document.getElementById("caja3")
+        
+        cantidad.addEventListener("change", () => {
+          resta.value = parseFloat(stock.value) - parseFloat(cantidad.value)
+
+        })
+        
 </script>
    
 @endsection
