@@ -18,6 +18,8 @@ class CreateEmpaquesTable extends Migration
             $table->integer('producto_id')->unsigned();
             $table->string('orden_empaque')->unique();
             $table->integer('cantidad_producto');
+            $table->integer('stock_actual')->nullable();
+            $table->integer('Estado_emp')->nullable()->default(0);
             $table->timestamps();
             
             /** id_producto **/

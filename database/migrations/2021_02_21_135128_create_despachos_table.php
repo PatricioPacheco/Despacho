@@ -18,7 +18,7 @@ class CreateDespachosTable extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->integer('empaquetado_id')->unsigned();
             $table->integer('transporte_id')->unsigned();
-            $table->datetime('fecha_despacho');
+            $table->integer('producto_id')->unsigned();
             $table->timestamps();
             
             /** id_cliente **/
@@ -32,7 +32,10 @@ class CreateDespachosTable extends Migration
             ->onDelete('cascade');
 
             $table->foreign('transporte_id')->references('id')->on('transportes')
-            ->onDelete('cascade');  
+            ->onDelete('cascade'); 
+            
+            $table->foreign('producto_id')->references('id')->on('productos')
+            ->onDelete('cascade');
         });
     }
 
