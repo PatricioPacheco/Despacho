@@ -15,7 +15,7 @@ class CreateEstantesTable extends Migration
     {
         Schema::create('estantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre_estante')->unique();
+            $table->string('nombre_estante')->unique()->nullable();
             $table->timestamps();
     
         });

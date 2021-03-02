@@ -31,10 +31,7 @@
                         </div>
                     @endif
 
-                @if (auth()->user()->role ==0)
-                
-    
-                    <div class="card-body">
+
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -109,7 +106,7 @@
                                                   <div class="form-group col-md-6">
                                                     <label for="nombre_producto" class="col-sm-10 control-label">Estado</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="estado_producto">
+                                                    <select class="custom-select" name="estado_producto" required>
                                                               <option value = '' >-</option>
                                                               <option value = 'Disponible' >Disponible</option>
                                                               <option value = 'No Disponible' >No Disponible</option>
@@ -137,7 +134,7 @@
                                               <div class="form-group col-md-6">
                                                 <label for="rol" class="col-sm-10 control-label" >Categoria</label>
                                                 <div class="col-sm-10">
-                                                <select class="custom-select" name="categoria_id">
+                                                <select class="custom-select" name="categoria_id" required>
                                                   <option value = '' ></option>
                                                   @foreach($cat as $cate)
                                                         <option value = '{{$cate->id}}' >{{ $cate->nombre_categoria }}</option>
@@ -151,7 +148,7 @@
                                             <div class="form-group col-md-6">
                                                 <label for="rol" class="col-sm-10 control-label" >Proveedor</label>
                                                 <div class="col-sm-10">
-                                                <select class="custom-select" name="proveedor_id">
+                                                <select class="custom-select" name="proveedor_id" required>
                                                   <option value = '' ></option>
                                                 @foreach($provee as $proveedores)
                                                         <option value = '{{$proveedores->id}}' >{{ $proveedores->nombre_proveedor}}</option>
@@ -170,7 +167,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="rol" class="col-sm-10 control-label" >Seccion</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="seccion_id">
+                                                    <select class="custom-select" name="seccion_id" required>
                                                       <option value = '' ></option>
                                                     @foreach($secc as $seccion)
                                                             <option value = '{{$seccion->id}}' >{{ $seccion->nombre_seccion}}</option>
@@ -184,7 +181,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="rol" class="col-sm-10 control-label" >Estante</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="estante_id">
+                                                    <select class="custom-select" name="estante_id" required>
                                                       <option value = '' ></option>
                                                     @foreach($est as $estante)
                                                             <option value = '{{$estante->id}}' >{{ $estante->nombre_estante}}</option>
@@ -198,7 +195,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="rol" class="col-sm-10 control-label" >Niveles</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="nivel_id">
+                                                    <select class="custom-select" name="nivel_id" required>
                                                       <option value = '' ></option>
                                                     @foreach($niv as $nivel) 
                                                             <option value = '{{$nivel->id}}' >{{ $nivel->nombre_nivel }}</option>
@@ -214,15 +211,15 @@
                                             <div class="form-group col-md-6">
                                                     <label for="rol" class="col-sm-10 control-label" >Fecha de Ingreso</label>
                                                     <div class="col-sm-10">
-                                                       <input class="form-control" type="date" name="fecha_ingreso">
+                                                       <input class="form-control" type="date" name="fecha_ingreso" required>
                                                     </div>
                                             </div>
 
 
                                             <div class="form-group col-md-6">
-                                                    <label for="rol" class="col-sm-10 control-label" >Fecha de caducidad</label>
+                                                    <label for="rol" class="col-sm-10 control-label" >Fecha de Caducidad</label>
                                                     <div class="col-sm-10">
-                                                       <input class="form-control" type="date" name="fecha_caducidad">
+                                                       <input class="form-control" type="date" name="fecha_caducidad" required>
                                                     </div>
                                             </div>
 
@@ -243,11 +240,11 @@
 
 
                     </div>
-                        <div class="table-responsive">  
-                        <table class="table table-bordered" id="dataTable"  width="100%" cellspacing="0">
+                        <div class="table-responsive"> 
+                <table class="table table-striped table-bordered  file-export " id="table" width="100%" cellspacing="0">
                            <thead > 
                             <tr >
-                            <th>Producto(info.)</th>
+                                <th>Producto</th>
                                 <th>Codigo</th>
                                 <th>Peso</th>
                                 <th>Stock</th>
@@ -262,7 +259,7 @@
                            </thead>
                            <tfoot > 
                             <tr >
-                                <th>Producto(info.)</th>
+                                <th>Producto</th>
                                 <th>Codigo</th>
                                 <th>Peso</th>
                                 <th>Stock</th>
@@ -342,7 +339,7 @@
                                                     </div>
 
                                                     <div class="form-group col-md-6">
-                                                    <label for="codigo_producto" class="col-sm-10 control-label">Codigo</label>
+                                                    <label for="codigo_producto" class="col-sm-10 control-label">Código</label>
                                                     <div class="col-sm-10">
                                                             <input type="text" class="form-control"  name="codigo_producto" value="{{old('codigo_producto',$productos->codigo_producto)}}" required>
                                                     </div>
@@ -380,7 +377,7 @@
                                                   <div class="form-group col-md-6">
                                                     <label for="nombre_producto" class="col-sm-10 control-label">Estado</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="estado_producto">
+                                                    <select class="custom-select" name="estado_producto" required>
                                                               <option value = '' ></option>
                                                               <option value = 'Disponible' >Disponible</option>
                                                               <option value = 'No Disponible' >No Disponible</option>
@@ -408,7 +405,7 @@
                                               <div class="form-group col-md-6">
                                                 <label for="rol" class="col-sm-10 control-label" >Categoria</label>
                                                 <div class="col-sm-10">
-                                                <select class="custom-select" name="categoria_id">
+                                                <select class="custom-select" name="categoria_id" required>
                                                   <option value = '' ></option>
                                                   @foreach($cat as $cate)
                                                         <option value = '{{$cate->id}}' >{{ $cate->nombre_categoria }}</option>
@@ -422,7 +419,7 @@
                                             <div class="form-group col-md-6">
                                                 <label for="rol" class="col-sm-10 control-label" >Proveedor</label>
                                                 <div class="col-sm-10">
-                                                <select class="custom-select" name="proveedor_id">
+                                                <select class="custom-select" name="proveedor_id" required>
                                                   <option value = '' ></option>
                                                 @foreach($provee as $proveedores)
                                                         <option value = '{{$proveedores->id}}' >{{ $proveedores->nombre_proveedor}}</option>
@@ -441,7 +438,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="rol" class="col-sm-10 control-label" >Seccion</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="seccion_id">
+                                                    <select class="custom-select" name="seccion_id" required>
                                                       <option value = '' ></option>
                                                     @foreach($secc as $seccion)
                                                             <option value = '{{$seccion->id}}' >{{ $seccion->nombre_seccion}}</option>
@@ -455,7 +452,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="rol" class="col-sm-10 control-label" >Estante</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="estante_id">
+                                                    <select class="custom-select" name="estante_id" required>
                                                       <option value = '' ></option>
                                                     @foreach($est as $estante)
                                                             <option value = '{{$estante->id}}' >{{ $estante->nombre_estante}}</option>
@@ -469,7 +466,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="rol" class="col-sm-10 control-label" >Niveles</label>
                                                     <div class="col-sm-10">
-                                                    <select class="custom-select" name="nivel_id">
+                                                    <select class="custom-select" name="nivel_id" required>
                                                       <option value = '' ></option>
                                                     @foreach($niv as $nivel) 
                                                             <option value = '{{$nivel->id}}' >{{ $nivel->nombre_nivel }}</option>
@@ -485,7 +482,7 @@
                                             <div class="form-group col-md-6">
                                                     <label for="rol" class="col-sm-10 control-label" >Fecha de Ingreso</label>
                                                     <div class="col-sm-10">
-                                                       <input class="form-control" type="date" name="fecha_ingreso" value="{{old('fecha_ingreso',$productos->fecha_ingreso)}}">
+                                                       <input class="form-control" type="date" name="fecha_ingreso" value="{{old('fecha_ingreso',$productos->fecha_ingreso)}}" required>
                                                     </div>
                                             </div>
 
@@ -493,7 +490,7 @@
                                             <div class="form-group col-md-6">
                                                     <label for="rol" class="col-sm-10 control-label" >Fecha de caducidad</label>
                                                     <div class="col-sm-10">
-                                                       <input class="form-control" type="date" name="fecha_caducidad" value="{{old('fecha_caducidad',$productos->fecha_caducidad)}}">
+                                                       <input class="form-control" type="date" name="fecha_caducidad" value="{{old('fecha_caducidad',$productos->fecha_caducidad)}}" required>
                                                     </div>
                                             </div>
 
@@ -528,7 +525,7 @@
 
                 </div>
     
-                    @endif
+                
                 
             </div>
             

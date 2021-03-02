@@ -29,13 +29,11 @@
             @endif
 
             @if (auth()->user()->role ==0)
-              <div class="card-body">
-                @if (session('status'))
-                  <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                  </div>
-                @endif
-              </div>
+              @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                  {{ session('status') }}
+                </div>
+              @endif
 
               <div class="card-body d-flex justify-content-between align-items-center">
                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#create">Crear Proveedor</button>
@@ -61,7 +59,7 @@
                           </div>
 
                           <div class="form-group">
-                            <label for="direccion_proveedor" class="col-sm-4 control-label">Direccion</label>
+                            <label for="direccion_proveedor" class="col-sm-4 control-label">Dirección</label>
                             <div class="col-sm-10">
                               <input type="text" class="form-control" name="direccion_proveedor" value="{{old('direccion_proveedor')}}" required>
                             </div>
@@ -75,7 +73,7 @@
                           </div>
 
                           <div class="form-group">
-                            <label for="numero_proveedor" class="col-sm-4 control-label">Número</label>
+                            <label for="numero_proveedor" class="col-sm-4 control-label">Teléfono/Celular</label>
                             <div class="col-sm-10">
                               <input type="number" class="form-control" name="numero_proveedor" value="{{old('numero_proveedor')}}" required>
                             </div>
@@ -92,14 +90,14 @@
                   </div>
                 </div>
 
-                <div class="table-responsive">  
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <div class="table-responsive"> 
+                <table class="table table-striped table-bordered  file-export " id="table" width="100%" cellspacing="0">
                     <thead> 
                       <tr>
                         <th>Nombre</th>
                         <th>Direccion</th>  
                         <th>Email</th>
-                        <th>Número</th>  
+                        <th>Teléfono</th>  
                         <th>Editar</th>
                         <th>Eliminar</th>
                       </tr>
@@ -110,7 +108,7 @@
                         <th>Nombre</th>
                         <th>Direccion</th>  
                         <th>Email</th>
-                        <th>Número</th>  
+                        <th>Teléfono</th>  
                         <th>Editar</th>
                         <th>Eliminar</th>
                       </tr>
@@ -132,7 +130,7 @@
                           </td>  
 
                           <td>
-                            {{$Proveedor->numero_proveedor}}
+                            0{{$Proveedor->numero_proveedor}}
                           </td> 
 
                           <td>

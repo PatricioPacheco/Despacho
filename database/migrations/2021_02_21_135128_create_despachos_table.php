@@ -19,6 +19,9 @@ class CreateDespachosTable extends Migration
             $table->integer('empaquetado_id')->unsigned();
             $table->integer('transporte_id')->unsigned();
             $table->integer('producto_id')->unsigned();
+            $table->string('desp_latitude')->nullable();
+            $table->string('desp_longitude')->nullable();
+            $table->string('zoom')->nullable();
             $table->timestamps();
             
             /** id_cliente **/

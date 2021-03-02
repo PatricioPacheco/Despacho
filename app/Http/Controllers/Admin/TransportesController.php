@@ -31,6 +31,25 @@ class TransportesController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'empresa_transporte' => 'required|max:255',
+            'tipo_transporte' => 'required|max:255|',
+            'numero_transporte' => 'required',
+            
+                  ];
+          $messages = [
+            'empresa_transporte.required' => 'Es necesario ingresar el nombre de la empresa.',
+            'empresa_transporte.max' => 'El nombre es demasiado extenso.',
+            'tipo_transporte.required' => 'Es necesario ingresar el nombre de la empresa.',
+            'tipo_transporte.max' => 'El nombre es demasiado extenso.',
+
+            'numero_transporte.required' => 'Es necesario ingresar el número de la empresa.',
+        
+           
+          ];
+   
+          $this->validate($request, $rules, $messages);
         $trs=new Transportes();
         $trs->empresa_transporte=$request->input('empresa_transporte');
         $trs->tipo_transporte=$request->input('tipo_transporte');
@@ -51,7 +70,26 @@ class TransportesController extends Controller
     }
 
     public function update(Request $request, $id)
+
     {
+
+        $rules = [
+            'empresa_transporte' => 'required|max:255',
+            'tipo_transporte' => 'required|max:255|',
+            'numero_transporte' => 'required',
+            
+                  ];
+          $messages = [
+            'empresa_transporte.required' => 'Es necesario ingresar el nombre de la empresa.',
+            'empresa_transporte.max' => 'El nombre es demasiado extenso.',
+            'tipo_transporte.required' => 'Es necesario ingresar el nombre de la empresa.',
+            'tipo_transporte.max' => 'El nombre es demasiado extenso.',
+            'numero_transporte.required' => 'Es necesario ingresar el número de la empresa.',
+        
+           
+          ];
+
+          $this->validate($request, $rules, $messages);
         $trs = Transportes::find($id);
         $trs->empresa_transporte=$request->input('empresa_transporte');
         $trs->tipo_transporte=$request->input('tipo_transporte');

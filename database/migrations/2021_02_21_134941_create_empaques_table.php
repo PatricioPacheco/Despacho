@@ -15,7 +15,7 @@ class CreateEmpaquesTable extends Migration
     {
         Schema::create('empaques', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('producto_id')->unsigned();
+            $table->integer('producto_id')->unsigned()->unique();
             $table->string('orden_empaque')->unique();
             $table->integer('cantidad_producto');
             $table->integer('stock_actual')->nullable();

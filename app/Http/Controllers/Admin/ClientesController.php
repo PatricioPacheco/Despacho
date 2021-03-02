@@ -30,6 +30,20 @@ class ClientesController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+           
+            'email_cliente' => 'required|email|max:255|unique:clientes',
+            
+                  ];
+          $messages = [
+            
+            'email_cliente.email' => 'El e-mail ingresado no es válido.',
+            'email_cliente.max' => 'El e-mail es demasiado extenso.',
+            'email_cliente.unique' => 'Este e-mail ya se encuentra en uso.',
+          ];
+
+    $this->validate($request, $rules, $messages);
         $cli=new Clientes();
         $cli->primer_nombre_cliente=$request->input('primer_nombre_cliente');
         $cli->segundo_nombre_cliente=$request->input('segundo_nombre_cliente');
@@ -58,6 +72,8 @@ class ClientesController extends Controller
 
     public function update(Request $request, $id)
     {
+
+    
         $cli = Clientes::find($id);
         $cli->primer_nombre_cliente=$request->input('primer_nombre_cliente');
         $cli->segundo_nombre_cliente=$request->input('segundo_nombre_cliente');

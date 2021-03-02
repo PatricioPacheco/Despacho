@@ -2,28 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(); 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('verified');
+Route::put('/profile', 'ProfileController@update')->name('profile.update')->middleware('verified');
+
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+
+Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
     
-
     Route::get('/usuarios', 'UserController@index')->name('usuarios')->middleware('verified');
     Route::post('/usuarios','UserController@registrar2')->name('usuarios.add')->middleware('verified');
     Route::get('/habilitar', 'UserController@index2')->name('usuarioshabilitar')->middleware('verified');
@@ -91,6 +91,12 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
 	Route::post('/despacho/{id}', 'EmpaquesController@despacho')->name('despacho.add')->middleware('verified');
 	Route::get('/empaques/{id}/destroy', 'EmpaquesController@destroy')->name('empaques.delete')->middleware('verified');
 
+	/** Despachos **/
+	Route::get('/despachos', 'DespachoController@index')->name('despachos')->middleware('verified');
+	Route::get('/despachos/{id}/destroy', 'DespachoController@destroy')->name('despachos.delete')->middleware('verified');
 
 
 });
+
+
+

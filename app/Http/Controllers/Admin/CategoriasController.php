@@ -29,6 +29,20 @@ class CategoriasController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'nombre_categoria' => 'required|max:255|unique:categorias',
+            
+                  ];
+          $messages = [
+            'nombre_categoria.required' => 'Es necesario ingresar el categoria del usuario.',
+            'nombre_categoria.max' => 'El nombre de la categoria es demasiado extenso.',
+            'nombre_categoria.unique' => 'La categoria ya esta registrada.',
+
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
           $cat=new Categorias();
           $cat->nombre_categoria=$request->input('nombre_categoria');
           $cat->save();
@@ -43,6 +57,20 @@ class CategoriasController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $rules = [
+            'nombre_categoria' => 'required|max:255|unique:categorias',
+            
+                  ];
+          $messages = [
+            'nombre_categoria.required' => 'Es necesario ingresar la categoria del usuario.',
+            'nombre_categoria.max' => 'El nombre de la categoria es demasiado extenso.',
+            'nombre_categoria.unique' => 'La categoria ya esta registrada.',
+
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $cat = Categorias::find($id);
         $cat->nombre_categoria=$request->input('nombre_categoria');              
         $cat->save();

@@ -32,10 +32,6 @@
                         </div>
                     @endif
 
-                @if (auth()->user()->role ==0)
-                
-    
-                    <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -163,8 +159,8 @@
                     </div>
 
 
-                        <div class="table-responsive">  
-                        <table class="table table-bordered" id="dataTable"  width="100%" cellspacing="0">
+                        <div class="table-responsive"> 
+                <table class="table table-striped table-bordered  file-export " id="table" width="100%" cellspacing="0">
                            <thead > 
                             <tr >
                                 <th>Orden</th>
@@ -228,10 +224,9 @@
                                    @if ($Empaques->stock_producto < $Empaques->cantidad_producto)
                                      No hay stock
                                    @else
-                                   <a href="/despacho/{{$Empaques->idempaque}}" class='far fa-edit' style='font-size:15px;color:green' title="Editar"> </a>
+                                   <a href="/despacho/{{$Empaques->idprod}}" class='fas fa-sort-numeric-down' style='font-size:15px;color:purple' title="Despachar"> </a>
                                   @endif
-                                  
-                                   
+                                       
                           </td>
 
                               <td>
@@ -248,7 +243,7 @@
 
                 </div>
     
-                    @endif
+                  
                 
             </div>
             

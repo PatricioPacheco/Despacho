@@ -29,13 +29,11 @@
             @endif
 
             @if (auth()->user()->role ==0)
-              <div class="card-body">
                 @if (session('status'))
                   <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                   </div>
                 @endif
-              </div>
 
               <div class="card-body d-flex justify-content-between align-items-center">
                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#create">Crear Nivel</button>
@@ -54,7 +52,7 @@
                         <form action="{{ route('niveles.add')}}" method="POST">
                           @csrf
                           <div class="form-group">
-                            <label for="nombre_nivel" class="col-sm-4 control-label">Nombre Nivel</label>
+                            <label for="nombre_nivel" class="col-sm-4 control-label">Nombre</label>
                             <div class="col-sm-10">
                               <input type="text" class="form-control"  name="nombre_nivel" value="{{old('nombre_nivel')}}" required>
                             </div>
@@ -71,8 +69,8 @@
                   </div>
                 </div>
 
-                <div class="table-responsive">  
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <div class="table-responsive"> 
+                <table class="table table-striped table-bordered  file-export " id="table" width="100%" cellspacing="0">
                     <thead> 
                       <tr>
                         <th>Nivel</th> 

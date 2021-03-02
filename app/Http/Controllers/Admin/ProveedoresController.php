@@ -30,6 +30,22 @@ class ProveedoresController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'nombre_proveedor' => 'required|max:255|unique:proveedores',
+            'email_proveedor' => 'required|email|max:255|unique:proveedores',
+            
+                  ];
+          $messages = [
+            'nombre_proveedor.required' => 'Es necesario ingresar el nombre del proveedor.',
+            'nombre_proveedor.max' => 'El nombre del proveedor es demasiado extenso.',
+            'nombre_proveedor.unique' => 'El proveedor ya esta registrado.',
+            'email_proveedor.email' => 'El e-mail ingresado no es válido.',
+            'email_proveedor.max' => 'El e-mail es demasiado extenso.',
+            'email_proveedor.unique' => 'Este e-mail ya se encuentra en uso.',
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $prv=new Proveedores();
         $prv->nombre_proveedor=$request->input('nombre_proveedor');
         $prv->direccion_proveedor=$request->input('direccion_proveedor');

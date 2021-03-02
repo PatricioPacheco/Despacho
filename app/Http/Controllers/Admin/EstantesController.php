@@ -31,6 +31,20 @@ class EstantesController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'nombre_estante' => 'required|max:255|unique:estantes',
+            
+                  ];
+          $messages = [
+            'nombre_estante.required' => 'Es necesario ingresar el estante del usuario.',
+            'nombre_estante.max' => 'El nombre del estante es demasiado extenso.',
+            'nombre_estante.unique' => 'El estante ya esta registrado.',
+           
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $est=new Estantes();
         $est->nombre_estante=$request->input('nombre_estante');
         $est->save();
@@ -50,6 +64,20 @@ class EstantesController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $rules = [
+            'nombre_estante' => 'required|max:255|unique:estantes',
+            
+                  ];
+          $messages = [
+            'nombre_estante.required' => 'Es necesario ingresar el estante del usuario.',
+            'nombre_estante.max' => 'El nombre del estante es demasiado extenso.',
+            'nombre_estante.unique' => 'El estante ya esta registrado.',
+           
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $est = Estantes::find($id);
         $est->nombre_estante=$request->input('nombre_estante');              
         $est->save();

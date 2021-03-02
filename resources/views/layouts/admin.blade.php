@@ -18,24 +18,32 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
+
 
     <script
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
   
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 
   
 
 <!-- Custom styles for this page -->
 <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+
+
+
+<style>
+
+#mapid { height: 180px; }
+
+</style>
 
 </head>
 <body id="page-top">
@@ -63,66 +71,90 @@
                 <span>{{ __('Información') }}</span></a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('profile') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Perfil') }}</span>
+            </a>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Módulos') }}
-        </div>
-
     
         @if (auth()->user()->role ==0)
 
+        <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+                    aria-expanded="true" aria-controls="collapseUser">
+                    <i class="far fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+                <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('usuarios') }}">
+                        <i class="fas fa-user-circle"></i>
+                        <span>{{ __('Usuarios') }}</span>
+                            </a>
+                        <a class="collapse-item" href="{{ route('usuarioshabilitar')}}">
+                        <i class="fas fa-users-cog"></i>
+                        <span>{{ __('Habilitar Usuarios') }}</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
         <!-- Nav Item - About -->
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('usuarios') }}">
-                <i class="far fa-user"></i>
-                <span>{{ __('Usuarios') }}</span>
-            </a>
-        </li>
+
+
+        <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-store"></i>
+                    <span>Tienda</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+  
+                        <a class="collapse-item" href="{{ route('proveedores') }}">
+                            <i class="fas fa-people-arrows"></i>
+                            <span>{{ __('Proveedores') }}</span>
+                        </a>
+
+                        <a class="collapse-item" href="{{ route('secciones') }}">
+                            <i class="fas fa-ruler-horizontal"></i>
+                            <span>{{ __('Secciones') }}</span>
+                        </a>
+
+                        <a class="collapse-item" href="{{ route('categoria') }}">
+                            <i class="fas fa-warehouse"></i>
+                            <span>{{ __('Categorias') }}</span>
+                        </a>
+
+                        <a class="collapse-item" href="{{ route('estantes') }}">
+                            <i class="fas fa-pause"></i>
+                            <span>{{ __('Estantes') }}</span>
+                        </a>
+
+                        <a class="collapse-item" href="{{ route('niveles') }}">
+                            <i class="fas fa-server"></i>
+                            <span>{{ __('Niveles') }}</span>
+                        </a>
+
+                        <a class="collapse-item" href="{{ route('transportes') }}">
+                            <i class="fas fa-people-carry"></i>
+                            <span>{{ __('Transportes') }}</span>
+                        </a>  
+                    </div>
+                </div>
+            </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('usuarioshabilitar')}}">
-                <i class="fas fa-users-cog"></i>
-                <span>{{ __('Habilitar Usuarios') }}</span>
+            <a class="nav-link" href="{{ route('clientes') }}">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>{{ __('Clientes') }}</span>
             </a>
         </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('proveedores') }}">
-                <i class="fas fa-people-arrows"></i>
-                <span>{{ __('Proveedores') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('secciones') }}">
-                <i class="fas fa-ruler-horizontal"></i>
-                <span>{{ __('Secciones') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('categoria') }}">
-                <i class="fas fa-warehouse"></i>
-                <span>{{ __('Categorias') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('estantes') }}">
-                <i class="fas fa-pause"></i>
-                <span>{{ __('Estantes') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('niveles') }}">
-                <i class="fas fa-server"></i>
-                <span>{{ __('Niveles') }}</span>
-            </a>
-        </li>
+   
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('productos') }}">
@@ -132,11 +164,24 @@
         </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('transportes') }}">
-                <i class="fas fa-people-carry"></i>
-                <span>{{ __('Transportes') }}</span>
+            <a class="nav-link" href="{{ route('empaques') }}">
+                <i class="fas fa-laptop-house"></i>
+                <span>{{ __('Empaques') }}</span>
             </a>
         </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('despachos') }}">
+                <i class="fas fa-sort-numeric-down"></i>
+                <span>{{ __('Despachos') }}</span>
+            </a>
+        </li>
+
+
+
+
+        @else
+
 
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('clientes') }}">
@@ -153,24 +198,13 @@
         </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('empaques') }}">
+            <a class="nav-link" href="{{ route('despachos') }}">
                 <i class="fas fa-sort-numeric-down"></i>
                 <span>{{ __('Despachos') }}</span>
             </a>
         </li>
 
-        @endif
-
-        @if (auth()->user()->role ==1)
-
-        <!-- Nav Item - About -->
-        <li class="nav-item ">
-            <a class="nav-link" href="">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Despacho') }}</span>
-            </a>
-        </li>
-
+        
        
         @endif
 
@@ -224,111 +258,6 @@
                         </div>
                     </li>
 
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
-                        </a>
-                        <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                            <h6 class="dropdown-header">
-                                Alerts Center
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-primary">
-                                        <i class="fas fa-file-alt text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 12, 2019</div>
-                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-success">
-                                        <i class="fas fa-donate text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 7, 2019</div>
-                                    $290.29 has been deposited into your account!
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-warning">
-                                        <i class="fas fa-exclamation-triangle text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 2, 2019</div>
-                                    Spending Alert: We've noticed unusually high spending for your account.
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                        </div>
-                    </li>
-
-                    <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-envelope fa-fw"></i>
-                            <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                            <h6 class="dropdown-header">
-                                Message Center
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                                    <div class="status-indicator"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                                    <div class="status-indicator bg-warning"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                        </div>
-                    </li>
-
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
@@ -379,10 +308,13 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Control, distribución y despacho de bodega 2021</span>
+                    <p><span>&copy;&nbsp;</span><span class="copyright-year"></span><span></span><span>&nbsp;</span><span>Todos los derechos reservados</span></p>
+                    <p><span>&nbsp;</span><span>Elaborador por: Tnlgo. Patricio Javier Pacheco Astudillo</span></p>
                 </div>
             </div>
         </footer>
+
+        
         <!-- End of Footer -->
 
     </div>
@@ -425,6 +357,21 @@
 <!-- Page level plugins -->
 <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+
+
+
+    <script src="{{ asset('app-assets/vendors/js/switchery.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/dataTables.buttons.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/buttons.html5.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/buttons.print.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/jszip.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/datatable/vfs_fonts.js') }}"></script>
+
+    <script src="{{ asset('app-assets/js/data-tables/dt-advanced-initialization.js') }}"></script>
 
 </body>
 </html>

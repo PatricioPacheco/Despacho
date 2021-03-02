@@ -15,7 +15,7 @@ class CreateNivelesTable extends Migration
     {
         Schema::create('niveles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre_nivel')->unique();
+            $table->string('nombre_nivel')->unique()->nullable();
             $table->timestamps();
            
         });

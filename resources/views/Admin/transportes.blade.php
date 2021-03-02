@@ -29,13 +29,11 @@
             @endif
 
             @if (auth()->user()->role ==0)
-              <div class="card-body">
-                @if (session('status'))
-                  <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                  </div>
-                @endif
-              </div>
+              @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                  {{ session('status') }}
+                </div>
+              @endif
 
               <div class="card-body d-flex justify-content-between align-items-center">
                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#create">Crear Transporte</button>
@@ -68,7 +66,7 @@
                           </div>
 
                           <div class="form-group">
-                            <label for="numero_transporte" class="col-sm-4 control-label">Número</label>
+                            <label for="numero_transporte" class="col-sm-4 control-label">Teléfono/Celular</label>
                             <div class="col-sm-10">
                               <input type="number" class="form-control" name="numero_transporte" value="{{old('numero_transporte')}}" required>
                             </div>
@@ -85,13 +83,13 @@
                   </div>
                 </div>
 
-                <div class="table-responsive">  
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <div class="table-responsive"> 
+                <table class="table table-striped table-bordered  file-export " id="table" width="100%" cellspacing="0">
                     <thead> 
                       <tr>
                         <th>Empresa</th>  
                         <th>Tipo</th>
-                        <th>Número</th>  
+                        <th>Teléfono</th>  
                         <th>Editar</th>
                         <th>Eliminar</th>
                       </tr>
@@ -101,7 +99,7 @@
                       <tr>
                         <th>Empresa</th>  
                         <th>Tipo</th>
-                        <th>Número</th>  
+                        <th>Teléfono</th>  
                         <th>Editar</th>
                         <th>Eliminar</th>
                       </tr>
@@ -119,7 +117,7 @@
                           </td>  
 
                           <td>
-                            {{$Transporte->numero_transporte}}
+                            0{{$Transporte->numero_transporte}}
                           </td> 
 
                           <td>
@@ -148,7 +146,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="">Número</label>
+                                      <label for="">Teléfono</label>
                                       <input  type="number" class="form-control @error('numero_transporte') is-invalid @enderror" name="numero_transporte" value="{{old('numero_transporte', $Transporte->numero_transporte)}}" required autocomplete="numero_transporte" autofocus>
                                     </div>
                                 </div>

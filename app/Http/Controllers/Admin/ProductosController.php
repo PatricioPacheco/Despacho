@@ -28,6 +28,7 @@ class ProductosController extends Controller
         $secc = DB::table('secciones')->get();
         $provee = DB::table('proveedores')->get();
         $prod=Productos::orderBy('nombre_producto','ASC')->paginate(5);
+        
         return view('Admin/producto', compact('user','cat','est','niv','provee','secc'), compact('prod'));
     }
 
@@ -48,6 +49,21 @@ class ProductosController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'nombre_producto' => 'required|max:255|unique:productos',
+            'codigo_producto' => 'required|max:255|unique:productos',
+                  ];
+          $messages = [
+            'nombre_producto.required' => 'Es necesario ingresar el nombre del producto.',
+            'nombre_producto.max' => 'El nombre del producto es demasiado extenso.',
+            'nombre_producto.unique' => 'El producto ya esta registrado.',
+            'codigo_producto.required' => 'Es necesario ingresar el código del producto.',
+            'codigo_producto.max' => 'El código del producto es demasiado extenso.',
+            'codigo_producto.unique' => 'El código ya esta registrado.',
+          ];
+
+      $this->validate($request, $rules, $messages);
         $prod=new Productos();
         
         $prod->seccion_id =$request->input('seccion_id');

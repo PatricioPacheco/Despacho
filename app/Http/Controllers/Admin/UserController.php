@@ -18,6 +18,7 @@ class UserController extends Controller
     }
 
     public function index(Request $request){
+       
 
         $user=Auth::user();
         $name=$request->get('names');
@@ -28,6 +29,26 @@ class UserController extends Controller
      function registrar2(Request $request)
 
     { 
+
+      $rules = [
+         'name' => 'required|max:255',
+         'email' => 'required|email|max:255|unique:users',
+         'password' => 'required|min:8',
+         
+               ];
+       $messages = [
+         'name.required' => 'Es necesario ingresar el nombre del usuario.',
+         'name.max' => 'El nombre es demasiado extenso.',
+         'email.required' => 'Es indispensable ingresar el e-mail del usuario.',
+         'email.email' => 'El e-mail ingresado no es válido.',
+         'email.max' => 'El e-mail es demasiado extenso.',
+         'email.unique' => 'Este e-mail ya se encuentra en uso.',
+         'password.required' => 'Olvidó ingresar una contraseña.',
+         'password.min' => 'La contraseña debe presentar al menos 8 caracteres.',
+        
+       ];
+
+       $this->validate($request, $rules, $messages);
        $users=new User();
        $users->name=$request->input('name');
        $users->email=$request->input('email');
@@ -75,9 +96,14 @@ class UserController extends Controller
                    'name' => 'required|max:255'
                    
                  ];
+
+                 $messages = [
+                  'name' => 'Es necesario ingresar el nombre del usuario.',
+                  'name.max' => 'El nombre del empaquetado es demasiado extenso.',
+                ];
    
    
-                 $this->validate($request, $rules);
+                $this->validate($request, $rules, $messages);
                    $user = User::find($id);
                    $user->name = $request->input('name');                
                   
@@ -85,5 +111,11 @@ class UserController extends Controller
                    $user->save();
                    return redirect('/usuarios')->with('success', 'Usuario modificado exitosamente.');
              }
+
+        
+             
+   
+     
+       
 
 }

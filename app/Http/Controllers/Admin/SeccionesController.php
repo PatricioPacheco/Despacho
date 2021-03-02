@@ -31,6 +31,19 @@ class SeccionesController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'nombre_seccion' => 'required|max:255|unique:secciones',
+            
+                  ];
+          $messages = [
+            'nombre_seccion.required' => 'Es necesario ingresar la sección del usuario.',
+            'nombre_seccion.max' => 'El nombre de la sección es demasiado extenso.',
+            'nombre_seccion.unique' => 'La sección ya esta registrada.',
+
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $sec=new Secciones();
         $sec->nombre_seccion=$request->input('nombre_seccion');
         $sec->save();
@@ -50,6 +63,20 @@ class SeccionesController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $rules = [
+            'nombre_seccion' => 'required|max:255|unique:secciones',
+            
+                  ];
+          $messages = [
+            'nombre_seccion.required' => 'Es necesario ingresar la sección del usuario.',
+            'nombre_seccion.max' => 'El nombre de la sección es demasiado extenso.',
+            'nombre_seccion.unique' => 'La sección ya esta registrada.',
+
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $sec = Secciones::find($id);
         $sec->nombre_seccion=$request->input('nombre_seccion');              
         $sec->save();

@@ -1,321 +1,328 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-       
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>EP Despachos </title>
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/estilos.css') }}" >
-        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-    </head>
-     
-    <body>
-    
-        <header>
-            <nav id="nav" class="nav">
-                <div class="contenedor-nav" align="right">
-                    <div class="enlaces" id="enlaces">
-
-                    <a href="{{ url('/') }}" id="enlace-inicio" class="btn-header"><strong>Inicio</strong></a>
-                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Nosotros</strong></a>
-                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Productos</strong></a>
-                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Equipo</strong></a>
-                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Servicio</strong></a>
-                    <a href="#" id="enlace-inicio" class="btn-header"><strong>Trabajo</strong></a>
-            
-                    
-                    @if (Route::has('login'))
-                    
-                        @auth
-                            <a href="{{ url('/home') }}"><strong>Home</strong></a>
-                        @else
-                            <a href="{{ route('login') }}"><strong>Iniciar Sesión</strong></a>
-                        @endauth
-                    
-                    @endif
-
-                
-                
-            </nav>
-            <section class="textos-header">
-                <h1>Sistema de Gestión</h1>
-                <h2>de Productos </h2>
-            </section>  
-            <div class="wave" style="height: 150px; overflow: hidden;" >
-                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                    <path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;">
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Home</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+  
+  </head>
+  <body>
+    <div class="preloader">
+      
+    </div>
+    <div class="page">
+      <!-- Top Banner--><a class="section section-banner text-center d-none d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/productos.jpg); background-image: -webkit-image-set( url(images/banner/background-04-1920x60.jpg) 1x, url(images/banner/background-04-3840x120.jpg) 2x )"></a>
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="56px" data-xl-stick-up-offset="56px" data-xxl-stick-up-offset="56px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-inner-outer">
+              <div class="rd-navbar-inner">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo.png" alt="" width="198" height="66"/></a></div>
+                </div>
+                <div class="rd-navbar-right rd-navbar-nav-wrap">
+                  <div class="rd-navbar-aside">
+                    <ul class="rd-navbar-contacts-2">
+                      <li>
+                        <div class="unit unit-spacing-xs">
+                          <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                          <div class="unit-body"><a class="phone" href="tel:#">+593983418540</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit unit-spacing-xs">
+                          <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                          <div class="unit-body"><a class="address" href="#">Quito, Ecuador</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul class="list-share-2">
+                      <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                      <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                    </ul>
+                  </div>
+                  <div class="rd-navbar-main">
+                    <!-- RD Navbar Nav-->
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="#servicios">Servicios</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#productos">Productos</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#equipo">Equipo</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#contactos">Contactos</a>
+                      </li>
+                      <li class="rd-nav-item">
+                        @if (Route::has('login'))
                         
-                    </path>
-                </svg>
+                            @auth
+                                <a class="rd-nav-link" href="{{ url('/home') }}">
+                                    <strong>Sistema</strong>
+                                </a>
+                            @else
+                                <a class="rd-nav-link" href="{{ route('login') }}">
+                                    <strong>Iniciar Sesión</strong>
+                                </a>
+                            @endauth
+                        
+                        @endif  
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-        </header>
-
-            
-            <main>
-        <section class="contenedor-sobre-nosotros">
-            <h2 class="titulo"></h2>
-            <p class="after">Nosotros</p>
-            <div class="contenedor-sobre-nosotros">
-                <img src="img/nosotros.svg" width="200px" height="200px">
-                <div class="contenido-textos">
-                    <h3>Información</h3>
-                        <p>Somos una plataforma de servicios tecnológicos enfocada en la gestión de productos que permite automatizar procesos de recepción, empaquetado y distribución de forma intuitiva y ágil. </p>
-                </div>
-            </div> 
-        </section>
-        <section class="portafolio">
-            <div class="contenedor">
-                <h2 class="titulo">Productos</h2>
-                <div class="galeria-port">
-                    <div class="imagen-port">
-                        <img src="img/comida1.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Todo tipo de alimento</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/cereales.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Varios cereales</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/dulces.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Diferentes caramelos</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/carnes.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Carnes</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/licor.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Licores</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/flores.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Variedad de flores</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/vestimenta.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Vestimenta y mas</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/tecnologia.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Tecnologia</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="team contenedor" id="equipo">
-            <h3 class="equipo1">Nuestro Equipo</h3> 
-            <p class="after">Conoce personas espectaculares</p>
-            <div class="card">
-                <div class="content-card">
-                    <div class="people">
-                        <img src="img/mujer.jpg" alt="">
-                    </div>
-                    <div class="texto-team">
-                        <h4>Sria. Ofelia Astudillo</h4>
-                        <p>Documentos y comunicaciones a nombre de la empresa</p>
-                    </div>
-                </div>
-                <div class="content-card">
-                    <div class="people">
-                        <img src="img/carnets.jpg" alt="">
-                    </div>
-                    <div class="texto-team">
-                        <h4>Tnlgo. Patricio Pacheco</h4>
-                        <p>Asistente de sistemas y desarrollo</p>
-                    </div>
-                </div>
-                <div class="content-card">
-                    <div class="people">
-                        <img src="img/hombre.jpg" alt="">
-                    </div>
-                    <div class="texto-team">
-                        <h4>QC. Jorge Carrion</h4>
-                        <p>Coordinador de calidad</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <Section class="about" id="servicio">
-            <div class="contenedor">
-                <h3>Nuestros Servicios</h3>
-                <p class="after">Siempre mejorando para ti</p>
-                <section class="expertos">
-                    <div class="cont-expertos">
-                            <img src="img/orden.svg" alt="">
-                            <h4>ORDEN</h4>
-                            <p>El tiempo es oro en cualquier organización, y desenvolverse en un espacio donde ordenado ayudará a que la producción mejore y a que el ritmo de trabajo sea el idóneo.</p>
-                    </div>
-                    <div class="cont-expertos">
-                        <img src="img/control.svg" alt="">
-                        <h4>CONTROL</h4>
-                        <p>Desarrollar un Control Interno adecuado a cada tipo de organización nos permitirá optimizar la utilización de recursos con calidad para alcanzar una adecuada gestión financiera y administrativa, logrando mejores niveles de productividad.</p>
-                    </div>
-                    <div class="cont-expertos">
-                        <img src="img/despacho.svg" alt="">
-                        <h4>DESPACHO</h4>
-                        <p>Aumentar el valor del producto por medio de una mejora en la calidad del servicio, es mucho más rentable y más difícil de imitar para la competencia, lo que agrega un valor indiscutible a la marca, haciéndola mucho más atractiva para sus clientes.</p>
-                    </div>
-                </section>
-            </div>
-        </Section>
-        <section class="work contenedor" id="trabajo">
-            <h3>Nuestro Trabajo</h3>
-            <p>Hacemos de algo simple algo extraordinario</p>
-            <div class="botones-work">
-                <ul>
-                    <li class="filter" data-nombre='todo'>Todo</li>
-                    <li class="filter" data-nombre='recepcion'>Recepcion</li>
-                    <li class="filter" data-nombre='distribucion'>Distribucion</li>
-                    <li class="filter" data-nombre='empaquetado'>Empaquetado</li>
-                    <li class="filter" data-nombre='despacho'>Despacho</li>
-                </ul>
-            </div>
-            <div class="galeria-work">
-                <div class="cont-work recepcion">
-                    <div class="img-work">
-                        <img src="img/recepcion1.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Recepcion</h4>
-                    </div>
-                </div>
-                <div class="cont-work recepcion">
-                    <div class="img-work">
-                        <img src="img/recepcion3.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Recepcion</h4>
-                    </div>
-                </div>
-                <div class="cont-work recepcion">
-                    <div class="img-work">
-                        <img src="img/recepcion2.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Recepcion</h4>
-                    </div>
-                </div>
-                
-                <div class="cont-work distribucion">
-                    <div class="img-work">
-                        <img src="img/distribucion3.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Distribucion</h4>
-                    </div>
-                </div>
-                <div class="cont-work distribucion">
-                    <div class="img-work">
-                        <img src="img/distribucion2.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Distribucion</h4>
-                    </div>
-                </div>
-                <div class="cont-work distribucion">
-                    <div class="img-work">
-                        <img src="img/distribucion1.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Distribucion</h4>
-                    </div>
-                </div>
-
-                <div class="cont-work empaquetado">
-                    <div class="img-work">
-                        <img src="img/empaquetado1.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Empaquetado</h4>
-                    </div>
-                </div>
-                <div class="cont-work empaquetado">
-                    <div class="img-work">
-                        <img src="img/empaquetado3.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Empaquetado</h4>
-                    </div>
-                </div>
-                <div class="cont-work empaquetado">
-                    <div class="img-work">
-                        <img src="img/empaquetado2.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Empaquetado</h4>
-                    </div>
-                </div>
-                
-                <div class="cont-work despacho">
-                    <div class="img-work">
-                        <img src="img/despacho2.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Despacho</h4>
-                    </div>
-                </div>
-                <div class="cont-work despacho">
-                    <div class="img-work">
-                        <img src="img/despacho1.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Despacho</h4>
-                    </div>
-                </div>
-                <div class="cont-work despacho">
-                    <div class="img-work">
-                        <img src="img/despacho3.jpg" alt="">
-                    </div>
-                    <div class="textos-work">
-                        <h4>Despacho</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <Footer id="contacto">
-        <div class=" about">
-            <div class="iconos">
-                <img src="img/facebook.png" alt="">
-                <p>Patricio Javier</p>
-                <img src="img/whatsapp.png" alt="">
-                <p>Telf: 0983418540</p>
-                <img src="img/instagram.png" alt="">
-                <p>@pijey_19</p>
-            </div>
+          </nav>
         </div>
-        <p>Tecnologo. Pacheco Astudillo Patricio Javier</p>
-    </Footer>
-        
+      </header>
+
+      <!-- Swiper-->
+      <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-slide-effect="fade">
+        <div class="swiper-wrapper text-sm-left">
+          <div class="swiper-slide context-dark" data-slide-bg="images/productos.jpg">
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-9 col-md-8 col-lg-7 col-xl-7 offset-lg-1 offset-xxl-0">
+                    <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">Sistema de Gestión de Productos</span></h1>
+                    <p class="big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">Plataforma diseñada para la automatización de procesos de recepción, empaquetado y distribución.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </body>
+
+      </section>
+      <!-- What We Offer-->
+      <section class="section section-md bg-default" id="servicios">
+        <div class="container">
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">SERVICIOS</span></h3>
+          <div class="row row-md row-30">
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInUp">
+                  <div class="services-terri-figure"><img src="images/seleccion.jpg" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title">Selección</h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInDown">
+                  <div class="services-terri-figure"><img src="images/empaque.jpg" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title">Empaquetado</h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInUp">
+                  <div class="services-terri-figure"><img src="images/despacho.jpg" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title">Despacho</h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Offer-->
+      <section class="section section-last bg-default" id="productos">
+        <div class="container-fluid container-inset-0 isotope-wrap">
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">PRODUCTOS</span></h3>
+          <div class="row row-10 gutters-10 isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-lightgallery="group">
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="images/frutas.jpg" data-lightgallery="item"><img src="images/frutas.jpg" alt="" width="310" height="585"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Frutas</h6>
+                    <div class="thumbnail-mary-location">y Vegetales</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-big wow slideInRight"><a class="thumbnail-mary-figure" href="images/cereales.jpg" data-lightgallery="item"><img src="images/cereales.jpg" alt="" width="631" height="587"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Granos</h6>
+                    <div class="thumbnail-mary-location">y Cereales</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInDown"><a class="thumbnail-mary-figure" href="images/carnes.jpg" data-lightgallery="item"><img src="images/carnes.jpg" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Carnes</h6>
+                    <div class="thumbnail-mary-location">y Mariscos</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary wow slideInUp"><a class="thumbnail-mary-figure" href="images/higiene.jpg" data-lightgallery="item"><img src="images/higiene.jpg" alt="" width="631" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Hiene Personal</h6>
+                    <div class="thumbnail-mary-location">y Salud</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInUp"><a class="thumbnail-mary-figure" href="images/pan.jpg" data-lightgallery="item"><img src="images/pan.jpg" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Harinas</h6>
+                    <div class="thumbnail-mary-location">y Panadería</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInRight"><a class="thumbnail-mary-figure" href="images/ferreteria.jpg" data-lightgallery="item"><img src="images/ferreteria.jpg" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Herramientas</h6>
+                    <div class="thumbnail-mary-location">y Ferretería</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="images/dulces.jpg" data-lightgallery="item"><img src="images/dulces.jpg" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title">Dulcería</h6>
+                    <div class="thumbnail-mary-location">y Confitería</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Equipo de Trabajo -->
+      <section class="section section-sm bg-default" id="equipo">
+        <div class="container">
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">EQUIPO DE TRABAJO</span></h3>
+          <div class="owl-carousel owl-style-11 dots-style-2" data-items="1" data-sm-items="1" data-lg-items="2" data-xl-items="3" data-margin="30" data-dots="true" data-mouse-drag="true" data-rtl="true">
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".1s">
+              <div class="box-icon-megan-header">
+                <div class="box-icon-megan-icon linearicons-leaf"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#">Tnlgo. Patricio Pacheco</a></h5>
+              <p class="box-icon-megan-text">Desarrollador</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".1s">
+              <div class="box-icon-megan-header">
+                <div class="box-icon-megan-icon linearicons-radar"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#">Sra. Ofelia Astudillo</a></h5>
+              <p class="box-icon-megan-text">Documentos y comunicaciones</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".15s">
+              <div class="box-icon-megan-header">
+                <div class="box-icon-megan-icon linearicons-thumbs-up"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#">QC. Jorge Carrión</a></h5>
+              <p class="box-icon-megan-text">Coordinador de Calidad</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="section footer-modern context-dark footer-modern-2" id="contactos">
+        <div class="footer-modern-line-2">
+          <div class="container">
+            <div class="row row-30 align-items-center">
+              <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
+                <div class="row row-30 align-items-center text-lg-center">
+                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="images/logo.png" alt="" width="198" height="66"/></a></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12 col-lg-8 col-xl-8 oh-desktop">
+                <div class="group-xmd group-sm-justify">
+                  <div class="footer-modern-contacts wow slideInUp">
+                    <div class="unit unit-spacing-sm align-items-center">
+                      <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
+                      <div class="unit-body"><a class="phone" href="tel:#">+593983418540</a></div>
+                    </div>
+                  </div>
+                  <div class="footer-modern-contacts wow slideInDown">
+                    <div class="unit unit-spacing-sm align-items-center">
+                      <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
+                      <div class="unit-body"><a class="mail" href="mailto:#">control.despacho2021@gmail.com</a></div>
+                    </div>
+                  </div>
+                  <div class="wow slideInRight">
+                    <ul class="list-inline footer-social-list footer-social-list-2 footer-social-list-3">
+                      <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                      <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-modern-line-3">
+          <div class="container">
+            <div class="row row-10 justify-content-between">
+              <div class="col-md-6"><span>Quito, Ecuador</span></div>
+              <div class="col-md-auto">
+                <!-- Derechos -->
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span></span><span>.&nbsp;</span><span>Todos los derechos reservados</span></p>
+                <p><span>&nbsp;</span><span>Elaborador por: Tnlgo. Patricio Javier Pacheco Astudillo</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- coded by Himic-->
+  </body>
 </html>

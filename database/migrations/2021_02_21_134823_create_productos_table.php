@@ -20,7 +20,7 @@ class CreateProductosTable extends Migration
             $table->integer('categoria_id')->unsigned()->nullable();
             $table->integer('estante_id')->unsigned()->nullable();
             $table->integer('nivel_id')->unsigned()->nullable();
-            $table->string('nombre_producto')->nullable();
+            $table->string('nombre_producto')->unique()->nullable();
             $table->string('codigo_producto')->unique()->nullable();
             $table->float('peso_producto')->nullable();
             $table->integer('stock_producto')->nullable();

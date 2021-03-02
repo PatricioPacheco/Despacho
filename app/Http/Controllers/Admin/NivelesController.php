@@ -31,6 +31,20 @@ class NivelesController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'nombre_nivel' => 'required|max:255|unique:niveles',
+            
+                  ];
+          $messages = [
+            'nombre_nivel.required' => 'Es necesario ingresar el nivel del usuario.',
+            'nombre_nivel.max' => 'El nombre del nivel es demasiado extenso.',
+            'nombre_nivel.unique' => 'El nivel ya esta registrada.',
+
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $lvl=new Niveles();
         $lvl->nombre_nivel=$request->input('nombre_nivel');
         $lvl->save();
@@ -50,6 +64,20 @@ class NivelesController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $rules = [
+            'nombre_nivel' => 'required|max:255|unique:niveles',
+            
+                  ];
+          $messages = [
+            'nombre_nivel.required' => 'Es necesario ingresar el nivel del usuario.',
+            'nombre_nivel.max' => 'El nombre del nivel es demasiado extenso.',
+            'nombre_nivel.unique' => 'El nivel ya esta registrada.',
+
+          ];
+
+  
+      $this->validate($request, $rules, $messages);
         $lvl = Niveles::find($id);
         $lvl->nombre_nivel=$request->input('nombre_nivel');              
         $lvl->save();
