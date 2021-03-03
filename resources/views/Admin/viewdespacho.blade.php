@@ -107,9 +107,13 @@
                             {{$Despacho->despachofecha}}
                           </td>
 
+
                           <td>
-                            <button type="button" style='font-size:24px;color:purple' data-toggle="modal" data-target="#edit{{$Despacho->despachoid}}"><i class="fas fa-eye"></i>
-                            </button>
+                          
+                            <!--<button type="button" style='font-size:24px;color:purple' data-toggle="modal" data-target="#edit{{$Despacho->despachoid}}"><i class="fas fa-eye"></i>
+                            </button>-->
+                            <a class="fas fa-eye" style='font-size:19px;color:blue' data-toggle="modal" data-target="#edit{{$Despacho->despachoid}}">
+                            </a>
                           </td>
 
                           <div class="modal fade" id="edit{{$Despacho->despachoid}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -147,7 +151,7 @@
                             
 
                           <td>
-                            <a href="/despachos/{{$Despacho->despachoid}}/destroy" class='far fa-trash-alt' style='font-size:24px;color:red' title="Eliminar" onclick="return confirm('Estas seguro que desea eliminar el despacho?')">
+                            <a href="/despachos/{{$Despacho->despachoid}}/destroy" class='far fa-trash-alt' style='font-size:19px;color:red' title="Eliminar" onclick="return confirm('Estas seguro que desea eliminar el despacho?')">
                             </a>
                           </td>
                         </tr>
