@@ -23,29 +23,16 @@
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
 
-    <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-  
-
-  
-
-<!-- Custom styles for this page -->
-<link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-
-
-
-
-<style>
-
-#mapid { height: 180px; }
-
-</style>
-
+    <style>
+        #mapid { height: 180px; }
+    </style>
 </head>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -64,57 +51,55 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('home') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>{{ __('Información') }}</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('profile') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Perfil') }}</span>
-            </a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-    
         @if (auth()->user()->role ==0)
+        <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>{{ __('Información') }}</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>{{ __('Perfil') }}</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+        
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
-                    aria-expanded="true" aria-controls="collapseUser">
+                        aria-expanded="true" aria-controls="collapseUser">
                     <i class="far fa-user"></i>
                     <span>Usuarios</span>
                 </a>
                 <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('usuarios') }}">
-                        <i class="fas fa-user-circle"></i>
-                        <span>{{ __('Usuarios') }}</span>
-                            </a>
+                            <i class="fas fa-user-circle"></i>
+                            <span>{{ __('Usuarios') }}</span>
+                        </a>
                         <a class="collapse-item" href="{{ route('usuarioshabilitar')}}">
-                        <i class="fas fa-users-cog"></i>
-                        <span>{{ __('Habilitar Usuarios') }}</span>
+                            <i class="fas fa-users-cog"></i>
+                            <span>{{ __('Habilitar Usuarios') }}</span>
                         </a>
                     </div>
                 </div>
             </li>
 
-        <!-- Nav Item - About -->
+            <!-- Nav Item - About -->
 
-
-        <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                        aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-store"></i>
                     <span>Tienda</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-  
                         <a class="collapse-item" href="{{ route('proveedores') }}">
                             <i class="fas fa-people-arrows"></i>
                             <span>{{ __('Proveedores') }}</span>
@@ -148,64 +133,74 @@
                 </div>
             </li>
 
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('clientes') }}">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <span>{{ __('Clientes') }}</span>
-            </a>
-        </li>
-   
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('productos') }}">
-                <i class="fas fa-industry"></i>
-                <span>{{ __('Productos') }}</span>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('clientes') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>{{ __('Clientes') }}</span>
                 </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('empaques') }}">
-                <i class="fas fa-laptop-house"></i>
-                <span>{{ __('Empaques') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('despachos') }}">
-                <i class="fas fa-sort-numeric-down"></i>
-                <span>{{ __('Despachos') }}</span>
-            </a>
-        </li>
-
-
-
-
-        @else
-
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('clientes') }}">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <span>{{ __('Clientes') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('empaques') }}">
-                <i class="fas fa-laptop-house"></i>
-                <span>{{ __('Empaques') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('despachos') }}">
-                <i class="fas fa-sort-numeric-down"></i>
-                <span>{{ __('Despachos') }}</span>
-            </a>
-        </li>
-
-        
+            </li>
        
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('productos') }}">
+                    <i class="fas fa-industry"></i>
+                    <span>{{ __('Productos') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('empaques') }}">
+                    <i class="fas fa-laptop-house"></i>
+                    <span>{{ __('Empaques') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('despachos') }}">
+                    <i class="fas fa-sort-numeric-down"></i>
+                    <span>{{ __('Despachos') }}</span>
+                </a>
+            </li>
+
+        @elseif (auth()->user()->role ==1)
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>{{ __('Información') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>{{ __('Perfil') }}</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('clientes') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>{{ __('Clientes') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('empaques') }}">
+                    <i class="fas fa-laptop-house"></i>
+                    <span>{{ __('Empaques') }}</span>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('despachos') }}">
+                    <i class="fas fa-sort-numeric-down"></i>
+                    <span>{{ __('Despachos') }}</span>
+                </a>
+            </li>
+
         @endif
 
         <!-- Divider -->
@@ -232,8 +227,6 @@
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
-
-                
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -267,7 +260,7 @@
                             <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="{{ Auth::user()->name[0] }}"></figure>
                         </a>
                         <!-- Dropdown - User Information -->
-                       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <!-- <a class="dropdown-item" href="{{ route('home') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Profile') }}
@@ -281,8 +274,8 @@
                                 {{ __('Activity Log') }}
                             </a>-->
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Logout') }}
                             </a>
                         </div>
@@ -295,9 +288,7 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
                 @yield('main-content')
-
             </div>
             <!-- /.container-fluid -->
 
@@ -313,7 +304,6 @@
                 </div>
             </div>
         </footer>
-
         
         <!-- End of Footer -->
 
@@ -357,9 +347,6 @@
 <!-- Page level plugins -->
 <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-
-
-
 
     <script src="{{ asset('app-assets/vendors/js/switchery.min.js') }}"></script>
     <script src="{{ asset('app-assets/vendors/js/datatable/jquery.dataTables.js') }}"></script>

@@ -16,10 +16,8 @@ class EmpleadoMiddelware
     public function handle($request, Closure $next)
     {
 
-        
         if (! auth()->check())
         return redirect('login');
-
 
     if (auth()->user()->role !=1)
         return redirect('home');

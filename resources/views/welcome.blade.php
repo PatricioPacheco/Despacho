@@ -97,8 +97,8 @@
             <div class="swiper-slide-caption section-md">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-9 col-md-8 col-lg-7 col-xl-7 offset-lg-1 offset-xxl-0">
-                    <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">Sistema de Gestión de Productos</span></h1>
+                  <div>
+                    <h1>Sistema de Gestión de Productos</h1>
                     <p class="big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">Plataforma diseñada para la automatización de procesos de recepción, empaquetado y distribución.</p>
                   </div>
                 </div>
@@ -106,7 +106,6 @@
             </div>
           </div>
         </div>
-
       </section>
       <!-- What We Offer-->
       <section class="section section-md bg-default" id="servicios">

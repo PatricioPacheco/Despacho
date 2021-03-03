@@ -22,7 +22,7 @@ Route::get('/about', function () {
 })->name('about');
 
 
-Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
+Route::group(['namespace' => 'Admin'], function () {
     
     Route::get('/usuarios', 'UserController@index')->name('usuarios')->middleware('verified');
     Route::post('/usuarios','UserController@registrar2')->name('usuarios.add')->middleware('verified');
@@ -83,7 +83,6 @@ Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
 	Route::post('/editClientes/{id}/update', 'ClientesController@update')->name('clientes.update')->middleware('verified');
 	Route::get('/clientes/{id}/destroy', 'ClientesController@destroy')->name('clientes.delete')->middleware('verified');
 
-
 	/** Empaques **/
 	Route::get('/empaques', 'EmpaquesController@index')->name('empaques')->middleware('verified');
 	Route::post('/empaques','EmpaquesController@store')->name('empaques.add')->middleware('verified');
@@ -94,9 +93,8 @@ Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
 	/** Despachos **/
 	Route::get('/despachos', 'DespachoController@index')->name('despachos')->middleware('verified');
 	Route::get('/despachos/{id}/destroy', 'DespachoController@destroy')->name('despachos.delete')->middleware('verified');
-
-
 });
+
 
 
 
